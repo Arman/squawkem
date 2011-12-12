@@ -1,0 +1,32 @@
+<div id="formReview" >
+  <%= form_for([@business, @business.reviews.build], :html => { :style => 'background-color:lightgrey;' }) do |f| %>
+    <table align="center" >
+      <thead>
+        <tr>
+          <th><a data-original-title="Speed" rel="popover" data-content="Speed">S</a></th>
+          <th><a data-original-title="Quality" rel="popover" data-content="Quality">Q</a></th>
+          <th><a data-original-title="Utility" rel="popover" data-content="Utility">U</a></th>
+          <th><a data-original-title="Affordability" rel="popover" data-content="Affordability AffordabilityAffordabilityAffordabilityAffordabilityAffordability AffordabilityAffordabilityAffordability">A</a></th>
+          <th><a data-original-title="Utility" rel="popover" data-content="Warranty">W</a></th>
+          <th><a data-original-title="Kind" rel="popover" data-content="Kindness">K</a></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= f.select :speed, 1..5, {:selected => '3' }, :class => 'tiny' %></td>
+          <td><%= f.select :quality, 1..5, {:selected => '3' }, :class => 'tiny' %></td>
+          <td><%= f.select :usability, 1..5, {:selected => '3' }, :class => 'tiny' %></td>
+          <td><%= f.select :affordability, 1..5, {:selected => '3' }, :class => 'tiny' %></td>
+          <td><%= f.select :warranty, 1..5, {:selected => '3' }, :class => 'tiny' %></td>
+          <td><%= f.select :kindness, 1..5, {:selected => '3' }, :class => 'tiny' %></td>
+        </tr>
+        <tr>
+          <td colspan="6"><%= f.text_area :comments, :rows => '3', :class => 'xlarge' %></td>
+        </tr>
+        <tr>
+          <td colspan="6"><%= f.submit "Review this business", :class =>"btn medium primary" %></td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+</div>

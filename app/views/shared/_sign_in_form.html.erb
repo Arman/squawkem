@@ -1,0 +1,15 @@
+<div class="pull-right">
+  <% if user_signed_in? %>
+    <p>
+      <font color="white"> Signed in as <b> <%= current_user.email %> </b>, not you? <%=link_to "Sign out", destroy_user_session_path, :method => :delete %></font>
+    </p>
+  <% else %>
+    <%= form_for("user", :url => user_session_path) do |f| %>
+      <%= link_to "Sign up", new_user_registration_path %> or 
+      <%= f.text_field :email, :class => "span2" %>
+      <%= f.password_field :password, :class => "span2" %>
+      <%= f.submit 'Sign in', :class =>"btn small primary" %>
+      <%= link_to "Forgot password?", new_password_path('user'), :class => "font_xs" %>
+    <% end %>
+  <% end %>
+</div>

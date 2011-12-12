@@ -1,0 +1,30 @@
+<div class="review">
+  <tr>
+    <td>
+    </td>
+    <td>
+      <%= review.created_at.to_date unless review.created_at.nil?%>
+    </td>
+    <td>
+      <%= review.speed %>
+    </td>
+    <td>
+      <%= review.quality %>
+    </td>
+    <td>
+      <%= review.usability %>
+    </td>
+    <td>
+      <%= review.affordability %>
+    </td>
+    <td>
+      <%= review.warranty %>
+    </td>
+    <td>
+      <%= review.kindness %>
+    </td>
+    <td>
+      Comments_link
+    </td>
+  </tr>
+</div>

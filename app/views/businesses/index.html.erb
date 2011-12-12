@@ -1,0 +1,30 @@
+<h1>Listing businesses</h1>
+
+<table id="listBusinesses" class="tablesorter">
+  <thead> 
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Phone</th>
+        <th>Url</th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @businesses.each do |business| %>
+      <tr>
+        <td><%= link_to business.name, business %></td>
+        <td><%= business.address %></td>
+        <td><%= business.city %></td>
+        <td><%= business.state %></td>
+        <td><%= business.phone %></td>
+        <td><%= business.url %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+
+<%= link_to 'New Business', new_business_path %>

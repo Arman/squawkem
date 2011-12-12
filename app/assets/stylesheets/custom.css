@@ -1,0 +1,54 @@
+
+.font_xs {
+	font-size: x-small
+}
+
+th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+th .asc {
+  background-image: url(/images/up_arrow.gif);
+}
+
+th .desc {
+  background-image: url(/images/down_arrow.gif);
+}
+
+.input-tiny,
+input.tiny,
+textarea.tiny,
+select.tiny {
+  width: 40px;
+}
+
+body {
+  font-size: 12px;
+  line-height: 15px;
+}
+p {
+  font-size: 12px;
+  line-height: 15px;
+  margin-bottom: 4px;
+}
+p small {
+  font-size: 11px;
+}
+textarea {
+  font-size: 12px;
+}
+label {
+  padding-top: 4px;
+  font-size: 12px;
+  line-height: 15px;
+}
+table {
+  font-size: 12px;
+}
+table th, table td {
+  padding: 5px 5px 4px;
+  line-height: 15px;
+  text-align: center;
+}

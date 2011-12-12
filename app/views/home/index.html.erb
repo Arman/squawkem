@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="span16">
+      <%= form_tag root_path, :method => :get do %>
+        <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search Near", :name => "search_near", :class => "btn small primary" %>
+          <%= submit_tag "Show All", :name => "show_all", :class => "btn small" %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span16">
+      <h3><%= @list_header %> </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span16">
+      <% if @businesses.empty? then %>
+        <p>Try another search or <%= link_to 'add a new business', new_business_path %></p>
+      <% else %>
+        <%= gmaps4rails(@json) %>
+        <div class="row"><div class="span16">&nbsp</div></div>
+        <div class="row">
+          <div class="span16"
+           <table>
+            <tr>
+              <th>business</th>
+              <th>description</th>
+            </tr>
+          <% @businesses.each do |business| %>
+            <tr>
+              <td><%= link_to business.name, business %></td>
+              <td><%= business.description %></td>
+            </tr>
+          <% end %>
+          </table>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span16">
+      <p><%= link_to 'New business', new_business_path %></p>
+      <p><%= link_to 'New job', root_path %></p>
+    </div>
+  </div>
+</div>
+ 
+
+
+
+
