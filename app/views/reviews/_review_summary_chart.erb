@@ -1,0 +1,21 @@
+<%= image_tag(
+Gchart.bar(
+            :data => [
+              @business.reviews.average(:speed), 
+              @business.reviews.average(:quality), 
+              @business.reviews.average(:usability),
+              @business.reviews.average(:affordability), 
+              @business.reviews.average(:warranty), 
+              @business.reviews.average(:kindness)
+              ],
+            :size => '172x40',
+            :bar_colors => 'FF0000',
+            :axis_with_labels => ['x'],
+            :axis_labels => ['S|Q|U|A|W|K'],
+            :background => 'EFEFEF',
+            :chart_background => 'EFEFEF',
+            :max_value => 5, 
+            :axis_range => [nil,[0,5,1]],
+           )
+)%>
+

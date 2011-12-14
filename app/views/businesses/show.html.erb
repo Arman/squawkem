@@ -1,21 +1,24 @@
 <div id="businessName" class="row">
   <div class="span14">
-    <h2><%= @business.name %></h2>
+    <h2><%= @business.name %> </h2>
   </div>
+ 
 </div>
 
 <div id="businessDetails" class="row">
   <div class="span9">
-    <div class="row"><div class="span9"><p><%= @business.address %>, <%= @business.city %>, <%= @business.state %></p></div></div>
-    <div class="row"><div class="span9"><p><%= @business.phone %></p></div></div>
-    <div class="row"><div class="span9"><p><%= @business.url %></p></div></div>
+    <div class="row">
+      <div class="span5">
+          <div class="row"><div class="span5"><p><%= @business.address %>, <%= @business.city %>, <%= @business.state %></p></div></div>
+          <div class="row"><div class="span5"><p><%= @business.phone %></p></div></div>
+          <div class="row"><div class="span5"><p><%= link_to_unless(@business.url.nil?, @business.url) %></p></div></div>
+
+      </div>
+      <div class="span3"><p><%=  render  :partial => 'reviews/review_summary_chart' unless @business.reviews.count==0 %></div>
+      <div class="span1"><p>&nbsp</p></div>
+    </div>
     <div class="row"><div class="span9"><p><%= @business.description %></p></div></div>
     <div class="row"><div class="span9">&nbsp</div></div>
-    <div class="row">
-      <div class="span1">&nbsp</div>
-      <div class="span7"><%= render  :partial => 'reviews/form' %></div>
-      <div class="span1">&nbsp</div>
-    </div>
   </div>
   <div id="businessMap" class="span5">
     <% if @business.address then %>
@@ -30,28 +33,41 @@
   </div>
 </div>
 
-<div id="businessReviews" class ="row">
-  <div class="span14">
-    <table id="listBusinesses" class="tablesorter">
-      <thead> 
-        <tr>
-          <th> Reviewer </th>
-          <th> Date </th>
-          <th> Speed </th>
-          <th> Quality </th>
-          <th> Usability </th>
-          <th> Affordability </th>
-          <th> Warranty </th>
-          <th> Kindness </th>
-          <th> Comments </th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render  :partial => 'reviews/review', :collection => @business.reviews %>
-      </tbody>
-    </table>
+<% if @business.reviews.count==0 then %>
+  <div>
+    <p>There are no reviews for this business yet!</p>
   </div>
+<% else %>
+  <div id="businessReviews" class ="row">
+    <div class="span14">
+      <table id="listBusinesses" class="tablesorter">
+        <thead> 
+          <tr>
+            <th> Reviewer </th>
+            <th> Date </th>
+            <th> Speed </th>
+            <th> Quality </th>
+            <th> Usability </th>
+            <th> Affordability </th>
+            <th> Warranty </th>
+            <th> Kindness </th>
+            <th> Comments </th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render  :partial => 'reviews/review', :collection => @business.reviews %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="span4">Have you worked with this business and have something to say? SQUAWK'em using this form: </div>
+  <div class="span6"><%= render  :partial => 'reviews/form' %></div>
+  <div class="span4">&nbsp</div>
 </div>
+
 
 <div id="businessLinks" class="row">
   <div class="span14">

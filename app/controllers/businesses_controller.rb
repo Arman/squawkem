@@ -17,8 +17,6 @@ class BusinessesController < ApplicationController
   # GET /businesses/1.json
   def show
     @business = Business.find(params[:id])
-    @new_review= @business.reviews.build
-    @review_exists = current_user.nil? ? nil : @business.reviews.find_by_reviewer_id(current_user.id)
     @json = @business.to_gmaps4rails
     respond_to do |format|
       format.html # show.html.erb
