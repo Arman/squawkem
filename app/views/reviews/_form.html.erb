@@ -3,27 +3,64 @@
     <table align="center" >
       <thead>
         <tr>
-          <th><a data-original-title="Speed" rel="popover" data-content="Did they get the work done quickly?
-           5 for Really Fast, 
-           4 for Fast Enough, 
-           3 for Average, 
-           2 for Somewhat Slow, 
-           1 for Really Slow">S</a></th>
-          <th><a data-original-title="Quality" rel="popover" data-content="Did they do a good job?  5 for Really Nice, 4 for Good Enough, 3 for Average, 2 for Somewhat OK, 1 for Really Bad">Q</a></th>
-          <th><a data-original-title="Usability" rel="popover" data-content="Are they easy to contact and schedule? Do they return calls same day? Can they be scheduled for same week appointments? 5 for Really Easy, 4 for Easy Enough, 3 for Average, 2 for Somewhat Hard to Use, 1 for Too Busy.">U</a></th>
-          <th><a data-original-title="Affordability" rel="popover" data-content="Do they give the best prices? 5 for Always The Best Price, 4 for Pretty Good Deal, 3 for Average, 2 for A Bit Expensive, 1 for Too Expensive.">A</a></th>
-          <th><a data-original-title="Warranty" rel="popover" data-content="Do they stand behind their work?  How good are they at fixing problems that arise?  5 for Excellent At Getting Problems Fixed, 4 for Good Enough, 3 for Average, 2 for Below Average, 1 for.">W</a></th>
-          <th><a data-original-title="Kindness" rel="popover" data-content="Are they kind, careful, and clean?  5 for Very Professional, 4 for Careful Enough, 3  for Average, 2 for Somewhat Unkind, 1 for Very Unproffesional">K</a></th>
+          <th><%= link_to('S', '#', :rel => "popover", :"data-original-title" => "Speed", :"data-content" => 'Did they get the work done quickly?   
+            <UL >
+              <li> 5 for Really Fast </li>
+              <li> 4 for Fast Enough </li>
+              <li> 3 for Average </li>
+              <li> 2 Somewhat Slow </li>
+              <li> 1 for Really Slow </li>
+            </UL>' )%> </th>
+          <th><%= link_to('Q', '#', :rel => "popover", :"data-original-title" => "Quality", :"data-content" => 'Did they do a good job? 
+            <UL >
+              <li> 5 for Really Nice </li>
+              <li> 4 for Good Enough </li>
+              <li> 3 for Average </li>
+              <li> 2 Somewhat OK </li>
+              <li> 1 for Really Bad </li>
+            </UL>' )%> </th>
+          <th><%= link_to('U', '#', :rel => "popover", :title => "Usability", :"data-content" => 'Are they easy to contact and schedule? Do they return calls same day? Can they be scheduled for same week appointments? 
+            <UL>
+              <LI> 5 for Really Easy </LI>
+              <LI> 4 for Easy Enough </LI>
+              <LI> 3 for Average </LI>
+              <LI> 2 for Somewhat Hard to Use </LI>
+              <LI> 1 for Very Busy </LI>
+            </UL>' )%> </th>
+          <th><%= link_to('A', '#', :rel => "popover", :title => "Affordability", :"data-content" => 'Do they give the best prices?
+            <UL>
+              <LI> 5 for Always The Best Price </LI>
+              <LI> 4 for Pretty Good Deal </LI>
+              <LI> 3 for Average </LI>
+              <LI> 2 for A Bit Expensive </LI>
+              <LI> 1 for Really Expensive </LI>
+            </UL>' )%> </th>
+          <th><%= link_to('W', '#', :rel => "popover", :title => "Warranty", :"data-content" => 'Do they stand behind their work?  How good are they at fixing problems that arise?
+            <UL>
+              <LI> 5 for Excellent At Getting Problems Fixed </LI>
+              <LI> 4 for Good Enough </LI>
+              <LI> 3 for Average </LI>
+              <LI> 2 for Below Average </LI>
+              <LI> 1 for No Warranty </LI>
+            </UL>' )%> </th>
+          <th><%= link_to('K', '#', :rel => "popover", :title => "Kindness", :"data-content" => 'Are they kind, careful, and clean?
+            <UL>
+              <LI> 5 for Very Professional </LI>
+              <LI> 4 for Careful Enough </LI>
+              <LI> 3 for Average </LI>
+              <LI> 2 for Somewhat Unkind </LI>
+              <LI> 1 for Very Unproffesional </LI>
+            </UL>' )%> </th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><%= f.select :speed, 1..5, {:selected => '3' }, :class => 'tiny' %></td>
-          <td><%= f.select :quality, 1..5, {:selected => '3' }, :class => 'tiny' %></td>
-          <td><%= f.select :usability, 1..5, {:selected => '3' }, :class => 'tiny' %></td>
-          <td><%= f.select :affordability, 1..5, {:selected => '3' }, :class => 'tiny' %></td>
-          <td><%= f.select :warranty, 1..5, {:selected => '3' }, :class => 'tiny' %></td>
-          <td><%= f.select :kindness, 1..5, {:selected => '3' }, :class => 'tiny' %></td>
+          <td><%= f.select :speed, 5.downto(1), {:selected => '3' }, :class => 'tiny' %></td>
+          <td><%= f.select :quality, 5.downto(1), {:selected => '3' }, :class => 'tiny' %></td>
+          <td><%= f.select :usability, 5.downto(1), {:selected => '3' }, :class => 'tiny' %></td>
+          <td><%= f.select :affordability, 5.downto(1), {:selected => '3' }, :class => 'tiny' %></td>
+          <td><%= f.select :warranty, 5.downto(1), {:selected => '3' }, :class => 'tiny' %></td>
+          <td><%= f.select :kindness, 5.downto(1), {:selected => '3' }, :class => 'tiny' %></td>
         </tr>
         <tr>
           <td colspan="6"><%= f.text_area :comments, :rows => '3', :class => 'xlarge' %></td>
