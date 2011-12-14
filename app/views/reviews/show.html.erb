@@ -1,0 +1,51 @@
+<div id="businessName" class="row">
+  <div class="span14">
+    <%= image_tag(
+          Gchart.bar(
+            :data => [
+              @review.speed, 
+              @review.quality, 
+              @review.usability,
+              @review.affordability, 
+              @review.warranty, 
+              @review.kindness
+              ],
+            :size => '172x40',
+            :bar_colors => 'FF0000',
+            :axis_with_labels => ['x'],
+            :axis_labels => ['S|Q|U|A|W|K'],
+            :background => 'EFEFEF',
+            :chart_background => 'EFEFEF',
+            :max_value => 5, 
+            :axis_range => [nil,[0,5,1]],
+            )
+          )%>
+  </div>
+</div>
+
+<div id="reviewDetails" class="row">
+  <div class="span9">
+    <div class="row">
+      <div class="span5">
+        &nbsp
+      </div>
+      <div class="span3"><p>&nbsp</p></div>
+      <div class="span1"><p>&nbsp</p></div>
+    </div>
+    <div class="row"><div class="span9"><p>&nbsp</p></div></div>
+    <div class="row"><div class="span9">&nbsp</div></div>
+  </div>
+</div>
+
+<div class ="row">
+  <div class="span14">
+    &nbsp
+  </div>
+</div>
+
+<div id="reviewLinks" class="row">
+  <div class="span14">
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', business_path(@review.business) %>
+  </div>
+</div>

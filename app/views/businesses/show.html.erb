@@ -62,9 +62,11 @@
   </div>
 <% end %>
 
-<div class="row">
-  <div class="span4">Have you worked with this business and have something to say? SQUAWK'em using this form: </div>
-  <div class="span6"><%= render  :partial => 'reviews/form' %></div>
+<div class="row" style="background: #ffe4e1;">
+  <div class="span4">
+    <br/><br/>Have you done business with <%= @business.name %> and have something to say? SQUAWK'em using this form: 
+  </div>
+  <div class="span6"><br/><%= render  :partial => 'reviews/form' %></div>
   <div class="span4">&nbsp</div>
 </div>
 

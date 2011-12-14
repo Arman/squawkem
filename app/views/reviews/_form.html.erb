@@ -1,5 +1,5 @@
 <div id="formReview" >
-  <%= form_for([@business, @business.reviews.build], :html => { :style => 'background-color:lightgrey;' }) do |f| %>
+  <%= form_for([@business, @business.reviews.build], :html => { :style => 'background-color:white;' }) do |f| %>
     <table align="center" >
       <thead>
         <tr>
@@ -63,10 +63,10 @@
           <td><%= f.select :kindness, 5.downto(1), {:selected => '3' }, :class => 'tiny' %></td>
         </tr>
         <tr>
-          <td colspan="6"><%= f.text_area :comments, :rows => '3', :class => 'xlarge' %></td>
-        </tr>
-        <tr>
-          <td colspan="6"><%= f.submit "Review this business", :class =>"btn medium primary" %></td>
+          <td colspan="6"><%= f.text_area :comments, :rows => '3', :class => 'xlarge' %>
+            <br/><br/>
+            <%= f.submit "Review this business", :class =>"btn medium primary" %>
+          </td>
         </tr>
       </tbody>
     </table>
