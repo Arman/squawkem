@@ -3,7 +3,8 @@
     <div class="span16">
       <%= form_tag root_path, :method => :get do %>
         <p>
-          <%= text_field_tag :search, params[:search] %>
+          Search for <%= text_field_tag :search_for, params[:search_for] %>
+          near <%= text_field_tag :search, params[:search] %>
           <%= submit_tag "Search Near", :name => "search_near", :class => "btn small primary" %>
           <%= submit_tag "Show All", :name => "show_all", :class => "btn small" %>
         </p>
