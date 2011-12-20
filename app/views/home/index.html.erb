@@ -1,6 +1,12 @@
 <div class="container">
 
   <div class="row">
+    <div class="span14">
+    <h3> Your source for contractors! </h3>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="span14" style="background:#eeedef;">
       <form action="" class="form-stacked">
         <div class="row">
@@ -14,7 +20,7 @@
           </div>          
           <div class="span2" style="vertical-align:middle"> 
             <label for="search_button">&nbsp</label>
-            <%= submit_tag "Search", :name => "search", :class => "btn small primary" %>
+            <%= submit_tag "Search", :name => "search", :class => "btn medium primary" %>
           </div>          
         </div>
       </form>
@@ -39,20 +45,29 @@
           <div class="span14">
            <table>
             <tr>
-              <th>Business Name</th>
-              <th>SQUAWK </th>
-              <th> Total Score </th>
-              <th> City </th>
-              <th> State </th>
-              <th> Distance </th>
+              <th>Business</th>
+              <th>S</th>
+              <th>Q</th>
+              <th>U</th>
+              <th>A</th>
+              <th>W</th>
+              <th>K</th>
+              <th>Total</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Distance</th>
             </tr>
           <% @businesses.each do |b| %>
             <tr>
               <td><%= link_to b.name, b %></td>
-              <td><%= b.description %></td>
+              <td><%= !b.reviews.blank? ? (b.reviews.average(:speed)): "N/A" %></td>
+              <td><%= !b.reviews.blank? ? (b.reviews.average(:quality)): "N/A" %></td>
+              <td><%= !b.reviews.blank? ? (b.reviews.average(:usability)): "N/A" %></td>
+              <td><%= !b.reviews.blank? ? (b.reviews.average(:affordability)): "N/A" %></td>
+              <td><%= !b.reviews.blank? ? (b.reviews.average(:warranty)): "N/A" %></td>
+              <td><%= !b.reviews.blank? ? (b.reviews.average(:kindness)): "N/A" %></td>
               <td><%=  !b.reviews.blank? ? (b.reviews.average(:speed)+ b.reviews.average(:quality) + b.reviews.average(:usability) +
-                        b.reviews.average(:affordability) + b.reviews.average(:warranty) + b.reviews.average(:kindness)).to_int : "N/A" %>
-                </td>
+                        b.reviews.average(:affordability) + b.reviews.average(:warranty) + b.reviews.average(:kindness)).to_int : "N/A" %></td>
               <td><%= b.city %></td>
               <td><%= b.state %></td>
               <td><%= !params[:search_near].blank? ? b.distance.round(1).to_s + " miles" : "N/A" %></td>
