@@ -2,7 +2,7 @@
   <div class="span14">
     <h2><%= @business.name %> </h2>
     <p> 
-      <% @business.categories.each do |category| %> 
+      <% @business.categories.order(:name).each do |category| %> 
         <%= link_to(category.name, root_path) %> &nbsp &nbsp &nbsp
       <% end %>
     </p>

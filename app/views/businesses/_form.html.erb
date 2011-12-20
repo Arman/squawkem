@@ -58,11 +58,16 @@
     </div>
   </div> 
 
-  <div class="clearfix">
-    <% Category.all.each do |category| %>
-      <label><%= category.name %>
-        <%= check_box_tag "business[category_ids][]", category.id, @business.categories.include?(category) %>
-      </label>
+  <div class="clearfix input">
+    <% Category.order(:name).each do |category| %>
+      <div class="pull-left">
+        <div class="input-prepend">
+          <label class="add-on">
+            <%= check_box_tag "business[category_ids][]", category.id, @business.categories.include?(category) %>
+          </label>
+          <input class="large uneditable-input" name="prependedInput2" id="prependedInput2" size="30" type="text" value="<%= category.name %>" >
+        </div>
+      </div>
     <% end %>
   </div>
 

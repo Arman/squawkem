@@ -52,3 +52,7 @@ table th, table td {
   line-height: 15px;
   text-align: center;
 }
+
+span {
+  font-size: 9px;
+}
