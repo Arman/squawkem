@@ -59,6 +59,14 @@
   </div> 
 
   <div class="clearfix">
+    <% Category.all.each do |category| %>
+      <label><%= category.name %>
+        <%= check_box_tag "business[category_ids][]", category.id, @business.categories.include?(category) %>
+      </label>
+    <% end %>
+  </div>
+
+  <div class="clearfix">
     <div class="input">
       <%= f.submit "Go!", :class =>"btn small primary" %>
     </div>

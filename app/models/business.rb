@@ -1,5 +1,5 @@
 class Business < ActiveRecord::Base
-  attr_accessible :name, :description, :due_date, :address, :city, :state, :phone, :url, :latitude, :longitude
+  attr_accessible :name, :description, :due_date, :address, :city, :state, :phone, :url, :latitude, :longitude, :category_ids
 
   acts_as_gmappable :process_geocoding => false, :lat => "latitude", :lng => "longitude" 
 
@@ -13,6 +13,10 @@ class Business < ActiveRecord::Base
   accepts_nested_attributes_for :reviews
   
   has_many :reviewers, :through => :reviews
+
+  has_many :categorizations
+  has_many :categories, :through => :categorizations
+  accepts_nested_attributes_for :categorizations
                   
   validates :name,  :presence => true,
                     :length   => { :maximum => 150 }
