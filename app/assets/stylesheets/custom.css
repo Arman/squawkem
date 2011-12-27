@@ -3,6 +3,14 @@
 	font-size: x-small
 }
 
+h3,
+h4,
+h5,
+h6 {
+  padding-top: 10px;
+}
+
+
 th .current {
   padding-right: 12px;
   background-repeat: no-repeat;

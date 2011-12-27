@@ -2,15 +2,10 @@
 
   <div class="row">
     <div class="span14">
-    <h3> Your source for getting home projects done in San Francisco Bay Area! </h3>
+    <h3> Your source for contractors in San Francisco Bay Area! </h3>
     </div>
   </div>
 
-  <div class="row">
-    <div class="span14">
-      <h4> Search Businesses: </h4>
-    </div>
-  </div>
   <div class="row">
     <div class="span14" style="background:#eeedef;">
       <form action="/search" class="form-stacked">
@@ -32,59 +27,20 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="span14">
-      <h4> Highest Rated Busineses: </h4>
-    </div>
-  </div>
-  <div class="row">
-    <div class="span14">
-      <div class = "row" >   
-          <% @top_categories.each do |c| %>
-            <%= '</div><div class = "row">'.html_safe if @top_categories.index(c) == 3 %>
-            <div class="span4">
-              <b><%= link_to c.name, "/search" %></b>
-              <ol>
-                <% c.businesses.all.sort! {|a,b| b.avg_review || 0 <=> a.avg_review || 0 }.take(5).each do |b| %>
-                  <li><%= link_to b.name, b %> <%= " (" + b.avg_review.to_s + ")" %></li>
-                <% end %>
-              </ol>
-            </div>
-            <%= '<div class="span1">&nbsp</div>'.html_safe unless @top_categories.index(c) == ( 2 || 4 )%>
-          <% end %>
-      </div>
-    </div>
-  </div>
 
+  <div class="row"><div class="span14">&nbsp</div></div>
   <div class="row">
     <div class="span14">
-      <h4> Browse Categories: </h4>
-    </div>
-  </div>
-  <div class="row">
-    <div class="span14">
-      <div class = "row" >   
-          <% @categories.each do |c| %>
-            <%= '</div><div class = "row">'.html_safe if (@categories.index(c)+1)%3 == 1   %>
-            <div class="span4">
-              <b><%= link_to c.name, "/search" %> <%= c.businesses.size.to_s%></b>
-            </div>
-            <%= '<div class="span1">&nbsp</div>'.html_safe unless (@categories.index(c)+1)%3 == 0 %>
-          <% end %>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="span14">
-      <h4> Newest Businesses: </h4>
+      <h3><%= @list_header %> </h3>
     </div>
   </div>
   <div class="row">
     <div class="span14">
       <% if @businesses.empty? then %>
-        <div class="row"><div class="span14">Please help us fill our database by <%= link_to 'adding a new business', new_business_path %></div>
+        <div class="row"><div class="span14">No businesses matched your search. Try another search or <%= link_to 'add a new business', new_business_path %></div>
       <% else %>
+        <div class="row"><div class="span14"><%= gmaps4rails(@json) %></div></div>
+        <div class="row"><div class="span14">&nbsp</div></div>
         <div class="row">
           <div class="span14">
            <table id="listBusinesses" class="tablesorter">
@@ -141,22 +97,23 @@
             </UL>' )%> </th>
                   <th>Total</th>
                   <th>City</th>
-                  <%= !params[:search_near].blank? ? "<th>Distance</th>".html_safe : '&nbsp'.html_safe %>
+                  <%= !params[:search_near].blank? ? "<th>Distance</th>".html_safe : '&nbsp' %>
                 </tr>
               </thead>
               <tbody>
                 <% @businesses.each do |b| %>
                   <tr>
                     <td><%= link_to b.name, b %></td>
-                    <td><%= b.avg_speed %></td>
-                    <td><%= b.avg_quality %></td>
-                    <td><%= b.avg_usability %></td>
-                    <td><%= b.avg_affordability %></td>
-                    <td><%= b.avg_warranty %></td>
-                    <td><%= b.avg_kindness %></td>
-                    <td><%= b.avg_review %></td>
+                    <td><%= !b.reviews.blank? ? (b.reviews.average(:speed)): "N/A" %></td>
+                    <td><%= !b.reviews.blank? ? (b.reviews.average(:quality)): "N/A" %></td>
+                    <td><%= !b.reviews.blank? ? (b.reviews.average(:usability)): "N/A" %></td>
+                    <td><%= !b.reviews.blank? ? (b.reviews.average(:affordability)): "N/A" %></td>
+                    <td><%= !b.reviews.blank? ? (b.reviews.average(:warranty)): "N/A" %></td>
+                    <td><%= !b.reviews.blank? ? (b.reviews.average(:kindness)): "N/A" %></td>
+                    <td><%=  !b.reviews.blank? ? (b.reviews.average(:speed)+ b.reviews.average(:quality) + b.reviews.average(:usability) +
+                              b.reviews.average(:affordability) + b.reviews.average(:warranty) + b.reviews.average(:kindness)).to_int : "N/A" %></td>
                     <td><%= b.city %></td>
-                    <%= !params[:search_near].blank? ? ("<td>"+ b.distance.round(1).to_s + "</td>").html_safe : '&nbsp'.html_safe %>
+                    <%= !params[:search_near].blank? ? ("<td>"+ b.distance.round(1).to_s + "</td>").html_safe : '&nbsp' %>
                   </tr>
                 <% end %>
               </tbody>

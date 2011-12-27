@@ -37,4 +37,37 @@ class Business < ActiveRecord::Base
     "#{self.name}" 
   end
 
+  def avg_speed
+    !self.reviews.blank? ? (self.reviews.average(:speed)): "N/A"
+  end
+
+  def avg_quality
+    !self.reviews.blank? ? (self.reviews.average(:quality)): "N/A"
+  end
+
+  def avg_usability
+    !self.reviews.blank? ? (self.reviews.average(:usability)): "N/A"
+  end
+
+  def avg_affordability
+    !self.reviews.blank? ? (self.reviews.average(:affordability)): "N/A"
+  end
+
+  def avg_warranty
+    !self.reviews.blank? ? (self.reviews.average(:warranty)): "N/A"
+  end
+
+  def avg_kindness
+    !self.reviews.blank? ? (self.reviews.average(:kindness)): "N/A"
+  end
+
+  def avg_review
+    if self.reviews.blank? 
+      "N/A" 
+    else
+      (self.reviews.average(:speed)+ self.reviews.average(:quality) + self.reviews.average(:usability) +
+        self.reviews.average(:affordability) + self.reviews.average(:warranty) + self.reviews.average(:kindness)).round(1)
+    end
+  end                          
+
 end
