@@ -38,32 +38,32 @@ class Business < ActiveRecord::Base
   end
 
   def avg_speed
-    !self.reviews.blank? ? (self.reviews.average(:speed)): "N/A"
+    !self.reviews.blank? ? (self.reviews.average(:speed)): 0
   end
 
   def avg_quality
-    !self.reviews.blank? ? (self.reviews.average(:quality)): "N/A"
+    !self.reviews.blank? ? (self.reviews.average(:quality)): 0
   end
 
   def avg_usability
-    !self.reviews.blank? ? (self.reviews.average(:usability)): "N/A"
+    !self.reviews.blank? ? (self.reviews.average(:usability)): 0
   end
 
   def avg_affordability
-    !self.reviews.blank? ? (self.reviews.average(:affordability)): "N/A"
+    !self.reviews.blank? ? (self.reviews.average(:affordability)): 0
   end
 
   def avg_warranty
-    !self.reviews.blank? ? (self.reviews.average(:warranty)): "N/A"
+    !self.reviews.blank? ? (self.reviews.average(:warranty)): 0
   end
 
   def avg_kindness
-    !self.reviews.blank? ? (self.reviews.average(:kindness)): "N/A"
+    !self.reviews.blank? ? (self.reviews.average(:kindness)): 0
   end
 
   def avg_review
     if self.reviews.blank? 
-      "N/A" 
+      0 
     else
       (self.reviews.average(:speed)+ self.reviews.average(:quality) + self.reviews.average(:usability) +
         self.reviews.average(:affordability) + self.reviews.average(:warranty) + self.reviews.average(:kindness)).round(1)

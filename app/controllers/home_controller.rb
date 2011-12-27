@@ -8,7 +8,7 @@ class HomeController < ApplicationController
 
     @categories = Category.order(:name)
 
-    @businesses = Business.order(:created_at).take(10)
+    @new_businesses = Business.order(:created_at).take(10)
   
   end
 

@@ -1,0 +1,12 @@
+ <tr>
+     <td><%= link_to table_row.name, table_row %></td>
+     <td><%= table_row.avg_speed==0 ? "N/A" : table_row.avg_speed %></td>
+     <td><%= table_row.avg_quality==0 ? "N/A" : table_row.avg_quality %></td>
+     <td><%= table_row.avg_usability==0 ? "N/A" : table_row.avg_usability %></td>
+     <td><%= table_row.avg_affordability==0 ? "N/A" : table_row.avg_affordability %></td>
+     <td><%= table_row.avg_warranty==0 ? "N/A" : table_row.avg_warranty %></td>
+     <td><%= table_row.avg_kindness==0 ? "N/A" : table_row.avg_kindness %></td>
+     <td><%= table_row.avg_review==0 ? "N/A" : table_row.avg_review %></td>
+     <td><%= table_row.city %></td>
+     <%= !params[:search_near].blank? ? ("<td>"+ table_row.distance.round(1).to_s + "</td>").html_safe : '&nbsp'.html_safe %>
+</tr>
