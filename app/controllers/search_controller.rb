@@ -20,5 +20,5 @@ class SearchController < ApplicationController
     end
     @json = @businesses.to_gmaps4rails
   end
-	
+
 end
