@@ -1,0 +1,23 @@
+<br/>
+<h2>Resend unlock instructions</h2>
+<br/>
+
+<%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="clearfix">
+    <%= f.label :email, :for => "xlInput" %>
+    <div class="input">   
+      <%= f.email_field :email %>
+    </div>
+  </div>
+
+  <div class="clearfix">
+    <div class="input">
+      <%= f.submit "Resend unlock instructions", :class =>"btn xxlarge primary" %>
+    </div>
+  </div>  
+
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>
