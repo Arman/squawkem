@@ -65,8 +65,8 @@ class Business < ActiveRecord::Base
     if self.reviews.blank? 
       0 
     else
-      (self.reviews.average(:speed)+ self.reviews.average(:quality) + self.reviews.average(:usability) +
-        self.reviews.average(:affordability) + self.reviews.average(:warranty) + self.reviews.average(:kindness)).round(1)
+      ((self.reviews.average(:speed)+ self.reviews.average(:quality) + self.reviews.average(:usability) +
+        self.reviews.average(:affordability) + self.reviews.average(:warranty) + self.reviews.average(:kindness))/6.0).round(1)
     end
   end                          
 

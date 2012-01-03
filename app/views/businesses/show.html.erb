@@ -1,25 +1,26 @@
+<br/>
 <div id="businessName" class="row">
-  <div class="span14">
-    <h2><%= @business.name %> </h2>
-    <p> 
-      <% @business.categories.order(:name).each do |category| %> 
-        <%= link_to(category.name, root_path) %> &nbsp &nbsp &nbsp
-      <% end %>
-    </p>
+  <div class="span10">
+    <h2><%= @business.name %> &nbsp &nbsp &nbsp <%=  render  :partial => 'reviews/review_summary_chart' unless @business.reviews.count==0 %></h2>
   </div>
- 
-</div>
+  <div class="span6"><p>&nbsp</p></div>
+</div>    
 
 <div id="businessDetails" class="row">
-  <div class="span9">
+  <div class="span11">
     <div class="row">
-      <div class="span5">
-          <div class="row"><div class="span5"><p><%= @business.address %>, <%= @business.city %>, <%= @business.state %></p></div></div>
-          <div class="row"><div class="span5"><p><%= @business.phone %></p></div></div>
-          <div class="row"><div class="span5"><p><%= link_to_unless(@business.url.nil?, @business.url) %></p></div></div>
-
+      <div class="span10">
+          <div class="row">
+            <div class="span10">
+              <% @business.categories.order(:name).each do |category| %> 
+                <%= link_to(category.name, root_path) %> &nbsp &nbsp &nbsp
+              <% end %>
+            </div>
+          </div>
+          <div class="row"><div class="span10"><p><%= @business.address %>, <%= @business.city %>, <%= @business.state %></p></div></div>
+          <div class="row"><div class="span10"><p><%= @business.phone %></p></div></div>
+          <div class="row"><div class="span10"><p><%= link_to_unless(@business.url.nil?, @business.url) %></p></div></div>
       </div>
-      <div class="span3"><p><%=  render  :partial => 'reviews/review_summary_chart' unless @business.reviews.count==0 %></div>
       <div class="span1"><p>&nbsp</p></div>
     </div>
     <div class="row"><div class="span9"><p><%= @business.description %></p></div></div>
@@ -32,9 +33,10 @@
   </div>
 </div>
 
-<div class ="row">
-  <div class="span14">
-    &nbsp
+<hr/>
+<div class="row">
+  <div class="span16">
+    <h4> Reviews for This Business: </h4>
   </div>
 </div>
 
@@ -44,7 +46,7 @@
   </div>
 <% else %>
   <div id="businessReviews" class ="row">
-    <div class="span14">
+    <div class="span16">
       <table id="listBusinesses" class="tablesorter">
         <thead> 
           <tr>
@@ -68,16 +70,16 @@
 <% end %>
 
 <div class="row" style="background: #ffe4e1;">
-  <div class="span4">
+  <div class="span5">
     <br/><br/>Have you done business with <%= @business.name %> and have something to say? SQUAWK'em using this form: 
   </div>
   <div class="span6"><br/><%= render  :partial => 'reviews/form' %></div>
-  <div class="span4">&nbsp</div>
+  <div class="span5">&nbsp</div>
 </div>
 
 
 <div id="businessLinks" class="row">
-  <div class="span14">
+  <div class="span16">
 <%= link_to 'Edit', edit_business_path(@business) %> |
 <%= link_to 'Back', businesses_path %>
   </div>

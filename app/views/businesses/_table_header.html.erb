@@ -1,6 +1,7 @@
  <thead> 
   <tr>
     <th>Business</th>
+    <th>City</th>
     <th><%= link_to('S', '#', :rel => "popover", :"data-original-title" => "Speed", :"data-content" => 'Did they get the work done quickly?   
       <UL >
         <li> 5 for Really Fast </li>
@@ -49,8 +50,7 @@
         <LI> 2 for Somewhat Unkind </LI>
         <LI> 1 for Very Unproffesional </LI>
       </UL>' )%> </th>
-    <th>Total</th>
-    <th>City</th>
+    <th>Average</th>
     <%= !params[:search_near].blank? ? "<th>Distance</th>".html_safe : '&nbsp'.html_safe %>
   </tr>
 </thead>
