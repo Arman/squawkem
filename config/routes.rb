@@ -8,7 +8,9 @@ Squawkem::Application.routes.draw do
 
   resources :reviews
 
-  match 'search/' => 'search#index'
+  resources :searches
+
+  #match 'search/' => 'search#index'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

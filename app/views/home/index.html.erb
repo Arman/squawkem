@@ -13,7 +13,7 @@
   </div>
   <div class="row">
     <div class="span16" style="background:#eeedef;">
-      <form action="/search" class="form-stacked">
+      <form action="/searches/new" class="form-stacked">
         <div class="row">
           <div class="span5">
             <label for="search_for">Search for <span>(e.g. landscaping, electrician, tile)</span></label>
@@ -44,7 +44,7 @@
           <% @top_categories.each do |c| %>
             <%= '</div><div class = "row">'.html_safe if @top_categories.index(c) == 3 %>
             <div class="span4">
-              <b><%= link_to c.name, "/search" %></b>
+              <b><%= link_to c.name, new_search_path(:category_id => c.id  ) %></b>
               <ol>
                 <% c.businesses.all.sort! {|a,b| b.avg_review <=> a.avg_review }.take(5).each do |b| %>
                   <li><%= link_to b.name, b %> <%= " (" + b.avg_review.to_s + ")" %></li>
@@ -69,7 +69,7 @@
           <% @categories.each do |c| %>
             <%= '</div><div class = "row">'.html_safe if (@categories.index(c)+1)%3 == 1   %>
             <div class="span4">
-              <b><%= link_to c.name, "/search" %> <%= c.businesses.size.to_s%></b>
+              <b><%= link_to c.name, new_search_path(:category_id => c.id  ) %> <%= c.businesses.size.to_s%></b>
             </div>
             <%= '<div class="span1">&nbsp</div>'.html_safe unless (@categories.index(c)+1)%3 == 0 %>
           <% end %>
