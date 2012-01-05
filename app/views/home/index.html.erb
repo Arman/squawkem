@@ -24,6 +24,7 @@
             <input class="xlarge" id="search_near" name="search_near" size="30" type="text">
           </div>          
           <div class="span2" style="vertical-align:middle"> 
+            <input class="hidden" id="category_id" name="category_id" size="30" type="hidden" value="">
             <label for="search_button">&nbsp</label>
             <%= submit_tag "Search", :name => "search", :class => "btn medium primary" %>
           </div>          
@@ -44,7 +45,7 @@
           <% @top_categories.each do |c| %>
             <%= '</div><div class = "row">'.html_safe if @top_categories.index(c) == 3 %>
             <div class="span4">
-              <b><%= link_to c.name, new_search_path(:category_id => c.id  ) %></b>
+              <b><%= link_to c.name, new_search_path( :search_for => '', :category_id => c.id  ) %></b>
               <ol>
                 <% c.businesses.all.sort! {|a,b| b.avg_review <=> a.avg_review }.take(5).each do |b| %>
                   <li><%= link_to b.name, b %> <%= " (" + b.avg_review.to_s + ")" %></li>

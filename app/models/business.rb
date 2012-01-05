@@ -20,8 +20,35 @@ class Business < ActiveRecord::Base
                   
   validates :name,  :presence => true,
                     :length   => { :maximum => 150 }
-                    
+                                    
   # validates :created_by,  :presence => true
+
+  # equivalent of the method below
+  #scope :contains_keyword, lambda {|keyword| where("name like ? OR description like ?", "%#{keyword}%", "%#{keyword}%") unless keyword.blank? }
+
+  def self.contains_keyword(keyword)
+    if keyword.empty? || keyword.blank?
+      scoped
+    else
+      where("name like ? OR description like ?", "%#{keyword}%", "%#{keyword}%")
+    end
+  end
+
+  def self.in_category(category_id)
+    if category_id.empty? || category_id.blank?
+      scoped
+    else
+      joins(:categories).where("categories.id = ?", category_id)
+    end
+  end
+
+  def self.near_location(location)
+    if location.empty? || location.blank?
+      scoped
+    else
+      near(location, 50, :order => :distance)
+    end
+  end
 
   def full_address
     "#{self.address}, #{self.city}, #{self.state}"

@@ -10,6 +10,10 @@ Squawkem::Application.routes.draw do
 
   resources :searches
 
+  match '/contact', :to => 'pages#contact'
+  match '/about',   :to => 'pages#about'
+  match '/help',    :to => 'pages#help'
+
   #match 'search/' => 'search#index'
 
   # Sample of regular route:

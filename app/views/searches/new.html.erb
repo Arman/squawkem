@@ -6,27 +6,7 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="span16" style="background:#eeedef;">
-      <form action="/searches/new" class="form-stacked">
-        <div class="row">
-          <div class="span6">
-            <label for="search_for">Search for <span>(e.g. landscaping, electrician, tile)</span></label>
-            <input class="xlarge" id="search_for" name="search_for" size="30" type="text">
-          </div>        
-          <div class="span6">  
-            <label for="search_near">Near <span>(Address, City, State or Zip)</span></label>
-            <input class="xlarge" id="search_near" name="search_near" size="30" type="text">
-          </div>          
-          <div class="span2" style="vertical-align:middle"> 
-            <label for="search_button">&nbsp</label>
-            <%= submit_tag "Search", :name => "search", :class => "btn medium primary" %>
-          </div>          
-        </div>
-      </form>
-    </div>
-  </div>
-
+  <%= render :partial => "searches/form"%>
 
   <div class="row"><div class="span16">&nbsp</div></div>
   <div class="row">
@@ -44,78 +24,10 @@
         <div class="row">
           <div class="span16">
            <table id="listBusinesses" class="tablesorter">
-              <thead> 
-                <tr>
-                  <th>Business</th>
-                   <th><%= link_to('S', '#', :rel => "popover", :"data-original-title" => "Speed", :"data-content" => 'Did they get the work done quickly?   
-            <UL >
-              <li> 5 for Really Fast </li>
-              <li> 4 for Fast Enough </li>
-              <li> 3 for Average </li>
-              <li> 2 Somewhat Slow </li>
-              <li> 1 for Really Slow </li>
-            </UL>' )%> </th>
-          <th><%= link_to('Q', '#', :rel => "popover", :"data-original-title" => "Quality", :"data-content" => 'Did they do a good job? 
-            <UL >
-              <li> 5 for Really Nice </li>
-              <li> 4 for Good Enough </li>
-              <li> 3 for Average </li>
-              <li> 2 Somewhat OK </li>
-              <li> 1 for Really Bad </li>
-            </UL>' )%> </th>
-          <th><%= link_to('U', '#', :rel => "popover", :title => "Usability", :"data-content" => 'Are they easy to contact and schedule? Do they return calls same day? Can they be scheduled for same week appointments? 
-            <UL>
-              <LI> 5 for Really Easy </LI>
-              <LI> 4 for Easy Enough </LI>
-              <LI> 3 for Average </LI>
-              <LI> 2 for Somewhat Hard to Use </LI>
-              <LI> 1 for Very Busy </LI>
-            </UL>' )%> </th>
-          <th><%= link_to('A', '#', :rel => "popover", :title => "Affordability", :"data-content" => 'Do they give the best prices?
-            <UL>
-              <LI> 5 for Always The Best Price </LI>
-              <LI> 4 for Pretty Good Deal </LI>
-              <LI> 3 for Average </LI>
-              <LI> 2 for A Bit Expensive </LI>
-              <LI> 1 for Really Expensive </LI>
-            </UL>' )%> </th>
-          <th><%= link_to('W', '#', :rel => "popover", :title => "Warranty", :"data-content" => 'Do they stand behind their work?  How good are they at fixing problems that arise?
-            <UL>
-              <LI> 5 for Excellent At Getting Problems Fixed </LI>
-              <LI> 4 for Good Enough </LI>
-              <LI> 3 for Average </LI>
-              <LI> 2 for Below Average </LI>
-              <LI> 1 for No Warranty </LI>
-            </UL>' )%> </th>
-          <th><%= link_to('K', '#', :rel => "popover", :title => "Kindness", :"data-content" => 'Are they kind, careful, and clean?
-            <UL>
-              <LI> 5 for Very Professional </LI>
-              <LI> 4 for Careful Enough </LI>
-              <LI> 3 for Average </LI>
-              <LI> 2 for Somewhat Unkind </LI>
-              <LI> 1 for Very Unproffesional </LI>
-            </UL>' )%> </th>
-                  <th>Total</th>
-                  <th>City</th>
-                  <%= !params[:search_near].blank? ? "<th>Distance</th>".html_safe : '&nbsp'.html_safe %>
-                </tr>
-              </thead>
+              <%= render 'businesses/table_header' %>
               <tbody>
-                <% @businesses.each do |b| %>
-                  <tr>
-                    <td><%= link_to b.name, b %></td>
-                    <td><%= !b.reviews.blank? ? (b.reviews.average(:speed)): "N/A" %></td>
-                    <td><%= !b.reviews.blank? ? (b.reviews.average(:quality)): "N/A" %></td>
-                    <td><%= !b.reviews.blank? ? (b.reviews.average(:usability)): "N/A" %></td>
-                    <td><%= !b.reviews.blank? ? (b.reviews.average(:affordability)): "N/A" %></td>
-                    <td><%= !b.reviews.blank? ? (b.reviews.average(:warranty)): "N/A" %></td>
-                    <td><%= !b.reviews.blank? ? (b.reviews.average(:kindness)): "N/A" %></td>
-                    <td><%=  !b.reviews.blank? ? (b.reviews.average(:speed)+ b.reviews.average(:quality) + b.reviews.average(:usability) +
-                              b.reviews.average(:affordability) + b.reviews.average(:warranty) + b.reviews.average(:kindness)).to_int : "N/A" %></td>
-                    <td><%= b.city %></td>
-                    <%= !params[:search_near].blank? ? ("<td>"+ b.distance.round(1).to_s + "</td>").html_safe : '&nbsp'.html_safe %>
-                  </tr>
-                <% end %>
+                <%= render :partial => "businesses/table_row", :collection => @businesses %>
+
               </tbody>
           </table>
         </div>
@@ -126,7 +38,6 @@
   <div class="row">
     <div class="span16">
       <p><%= link_to 'New business', new_business_path %></p>
-      <p><%= link_to 'New job', root_path %></p>
     </div>
   </div>
 </div>
