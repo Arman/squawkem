@@ -56,3 +56,11 @@ table th, table td {
 span {
   font-size: 9px;
 }
+
+footer {
+  background-color: #c5c5c5;
+}
+
+.centered {
+  text-align: center;
+}
