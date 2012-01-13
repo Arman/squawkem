@@ -70,3 +70,14 @@ if Rails.env.development?
 	end
 
 end
+
+if !Rails.env.development?
+
+	[ "Jim Contractor", "Jose's Paint", "Mike's Windows", \
+		"Big Tile and Stone", "Martin's Electrical", "Sean The Carpenter", "Michael's Kitchen and Bath", \
+		"Theo's Roofing", "Santa's Plumbing", "DeSoto Concrete", "Mason Masonry", "Leo's Swimming Pools", \
+		"Happy Heating and Air Conditioning"].each do |os|
+	  Business.find_or_create_by_name(os).delete
+	end
+
+end
