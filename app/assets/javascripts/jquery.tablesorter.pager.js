@@ -107,6 +107,10 @@
         			moveToLastPage(table);
 				}
 				
+				// adding to correctly locate pager
+				c.pagerPositionSet = false;
+   			fixPosition(table);
+
 				updatePageDisplay(c);
 			}
 			

@@ -17,6 +17,12 @@ th .desc {
   background-image: url(/images/down_arrow.gif);
 }
 
+
+tr.odd td { 
+  background: #e6f2ff;
+}
+
+
 .input-tiny,
 input.tiny,
 textarea.tiny,
