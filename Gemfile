@@ -26,6 +26,7 @@ gem "googlecharts", "~> 1.6.8"
 
 group :development do
   gem 'sqlite3'
+  gem 'paperclip', "~> 2.0", path: 'vendor/gems/paperclip'
 end
 
 group :test do

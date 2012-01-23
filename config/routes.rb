@@ -6,6 +6,8 @@ Squawkem::Application.routes.draw do
     resources :reviews
   end
 
+  resources :categories
+  
   resources :reviews
 
   resources :searches

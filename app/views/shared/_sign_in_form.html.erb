@@ -1,7 +1,7 @@
 <div class="pull-right">
   <% if user_signed_in? %>
     <p>
-      <font color="white"> Signed in as <b> <%= current_user.email %> </b>, not you? <%=link_to "Sign out", destroy_user_session_path, :method => :delete %></font>
+      <font color="white"> <b> <%= current_user.email %> </b> <%= link_to(image_tag("icon_logout.png"),destroy_user_session_path, :method => :delete, :rel => "twipsy", :"data-original-title" => "Sign Out" )%></font>
     </p>
   <% else %>
     <%= form_for("user", :url => user_session_path) do |f| %>
@@ -12,4 +12,7 @@
       <%= link_to "Forgot password?", new_password_path('user'), :class => "font_xs" %>
     <% end %>
   <% end %>
+
+
 </div>
+

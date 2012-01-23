@@ -6,9 +6,17 @@ $(document).ready(function()
     } 
 ); 
 
+$(function () {
+  $("a[rel*=twipsy]")
+    .twipsy({
+      placement: 'below',
+      offset: 0,
+      trigger : 'hover'
+    })
+})
 
 $(function () {
-  $("a[rel=popover]")
+  $("a[rel*=popover]")
     .popover({
       offset: 10, 
       html : true
