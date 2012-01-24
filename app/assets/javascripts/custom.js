@@ -7,11 +7,12 @@ $(document).ready(function()
 ); 
 
 $(function () {
-  $("a[rel*=twipsy]")
+  $("a[rel*=twipsy],input[rel*=twipsy]")
     .twipsy({
       placement: 'below',
       offset: 0,
-      trigger : 'hover'
+      trigger : 'hover',
+      delayIn : 500
     })
 })
 

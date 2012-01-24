@@ -3,30 +3,46 @@
 	font-size: x-small
 }
 
+input[type=image], input[type=image]:hover {
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+
 .topbar-inner, .topbar .fill {
-  background-color: #494949;
-  background-color: #494949;
+  background-color: #a9a9a9;
+  background-color: #a9a9a9;
   background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#484848), to(#494949));
-  background-image: -moz-linear-gradient(top, #484848, #494949);
-  background-image: -ms-linear-gradient(top, #484848, #494949);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #484848), color-stop(100%, #494949));
-  background-image: -webkit-linear-gradient(top, #484848, #494949);
-  background-image: -o-linear-gradient(top, #484848, #494949);
-  background-image: linear-gradient(top, #484848, #494949);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#494949', endColorstr='#484848', GradientType=0);
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#a8a8a8), to(#a9a9a9));
+  background-image: -moz-linear-gradient(top, #a8a8a8, #a9a9a9);
+  background-image: -ms-linear-gradient(top, #a8a8a8, #a9a9a9);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a8a8a8), color-stop(100%, #a9a9a9));
+  background-image: -webkit-linear-gradient(top, #a8a8a8, #a9a9a9);
+  background-image: -o-linear-gradient(top, #a8a8a8, #a9a9a9);
+  background-image: linear-gradient(top, #a8a8a8, #a9a9a9);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a9a9a9', endColorstr='#a8a8a8', GradientType=0);
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
-
-.modal-backdrop {
-  background-color: #494949;
+.topbar a {
+  color: #0f0f0f;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
-
-.modal {
-  background-color: #484848;
+.topbar h3 a:hover, .topbar .brand a:hover, .topbar ul .active > a {
+  color: #4f4f4f;
+}
+.topbar h3 a, .topbar .brand {
+  color: #0f0f0f;
+}
+.topbar p a:hover {
+  color: #0f0f0f;
+}
+.topbar div > ul a:hover, .nav a:hover {
+  color: #4f4f4f;
 }
 
 

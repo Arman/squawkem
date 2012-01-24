@@ -1,15 +1,17 @@
 <div class="pull-right">
   <% if user_signed_in? %>
     <p>
-      <font color="white"> <b> <%= current_user.email %> </b> <%= link_to(image_tag("icon_logout.png"),destroy_user_session_path, :method => :delete, :rel => "twipsy", :"data-original-title" => "Sign Out" )%></font>
+      <font color="black"> <b> <%= current_user.email %> </b> <%= link_to(image_tag("sign-out.png"),destroy_user_session_path, :method => :delete, :rel => "twipsy", :"data-original-title" => "Sign Out" )%></font>
     </p>
   <% else %>
     <%= form_for("user", :url => user_session_path) do |f| %>
-      <%= link_to "Sign up", new_user_registration_path %> or 
+      <%= link_to(image_tag("sign-up.png"),new_user_registration_path, :rel => "twipsy", :"data-original-title" => "Sign Up" )%>
+      &nbsp&nbsp
       <%= f.text_field :email, :class => "span2" %>
       <%= f.password_field :password, :class => "span2" %>
-      <%= f.submit 'Sign in', :class =>"btn small primary" %>
-      <%= link_to "Forgot password?", new_password_path('user'), :class => "font_xs" %>
+      <%= submit_tag 'Sign in', :src => '/assets/sign-in.png', :type => 'image', :rel => "twipsy", :"data-original-title" => "Sign In" %>
+      &nbsp&nbsp
+      <%= link_to(image_tag("login.png"),new_password_path('user'), :rel => "twipsy", :"data-original-title" => "Forgot Password" )%>
     <% end %>
   <% end %>
 
