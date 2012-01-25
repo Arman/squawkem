@@ -16,6 +16,7 @@ Squawkem::Application.routes.draw do
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
   match '/thanks',  :to => 'pages#thanks'
+  match '/tour',  :to => 'pages#tour'
 
   #match 'search/' => 'search#index'
 

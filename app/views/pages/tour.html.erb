@@ -1,0 +1,61 @@
+<header class="jumbotron masthead" id="overview">
+  <div class="inner">
+    <div class="container">
+      <h1>This is the site tour! </h1>
+      <p class="lead">
+        Yes, membership is free! You can see the information members have access to below. 
+      </p>
+    </div>
+  </div>
+</header>
+
+<br/><br/><br/><br/>
+
+<div class="container">
+  <div class="row">
+    <div class="span5">
+      <%= image_tag("welcome.png") %>
+    </div>
+    <div class="span1">
+      &nbsp
+    </div>
+    <div class="span8" style="background:#FFFFFF;">
+      <div class="row">
+        <div class="span8">
+          <br/>
+          <p>
+            On our site you can make informed decisions by using reviews and ratings created by home owners.  
+          </p>
+          <p>
+            You can also rank businesses by the following six dimensions:
+          </p>
+          <ul>
+            <li><strong>Speed:</strong> Do they get the work done quickly? </li>
+            <li><strong>Quality:</strong> Do they do a good job?  </li>
+            <li><strong>Usability:</strong> Are they easy to contact and schedule? Do they return calls same day? Can they be scheduled for same week appointments?  </li>
+            <li><strong>Affordability:</strong> Do they give the best prices? </li>
+            <li><strong>Warranty:</strong> Do they stand behind their work?  How good are they at fixing problems that arise? </li>
+            <li><strong>Kindliness:</strong> Are they kind, careful, and clean? </li>
+          </ul>
+          <br/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span4">
+        <%= button_to "Get Started", new_user_registration_path,:class => "btn medium primary", :method => :get, :rel => "twipsy", :"data-original-title" => "Sign Up" %>
+        </div>
+        <div class="span4">
+          &nbsp
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br/><br/><br/><br/>
+
+ 
+
+
+
+

@@ -3,6 +3,63 @@
 	font-size: x-small
 }
 
+.lead {
+  font-size: 20px;
+  line-height: 27px;
+}
+
+
+/* Jumbotrons from Twitter Bootstrap
+-------------------------------------------------- */
+.jumbotron {
+  min-width: 940px;
+}
+.jumbotron .inner {
+  background: transparent url(../assets/grid-18px.png) top center;
+  padding: 45px 0;
+  -webkit-box-shadow: inset 0 10px 30px rgba(0,0,0,.3);
+     -moz-box-shadow: inset 0 10px 30px rgba(0,0,0,.3);
+/*          box-shadow: inset 0 10px 30px rgba(0,0,0,.3);
+*/}
+.jumbotron h1,
+.jumbotron p {
+  margin-bottom: 9px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+}
+.jumbotron h1 {
+  font-size: 33px;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+.jumbotron p {
+  font-weight: 300;
+}
+.jumbotron .lead {
+  font-size: 20px;
+  line-height: 27px;
+}
+.jumbotron p a {
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Specific jumbotrons
+------------------------- */
+/* welcome page */
+.masthead {
+  background-color: #049cd9;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9));
+  background-image: -webkit-linear-gradient(#004D9F, #049cd9);
+  background-image: -moz-linear-gradient(#004D9F, #049cd9);
+  background-image: -o-linear-gradient(top, #004D9F, #049cd9);
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#004D9F', endColorstr='#049cd9', GradientType=0); /* IE8 and down */
+}
+
+
 input[type=image], input[type=image]:hover {
   width: auto;
   height: auto;
@@ -12,17 +69,17 @@ input[type=image], input[type=image]:hover {
 }
 
 .topbar-inner, .topbar .fill {
-  background-color: #a9a9a9;
-  background-color: #a9a9a9;
+  background-color: #e9e9e9;
+  background-color: #e9e9e9;
   background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#a8a8a8), to(#a9a9a9));
-  background-image: -moz-linear-gradient(top, #a8a8a8, #a9a9a9);
-  background-image: -ms-linear-gradient(top, #a8a8a8, #a9a9a9);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a8a8a8), color-stop(100%, #a9a9a9));
-  background-image: -webkit-linear-gradient(top, #a8a8a8, #a9a9a9);
-  background-image: -o-linear-gradient(top, #a8a8a8, #a9a9a9);
-  background-image: linear-gradient(top, #a8a8a8, #a9a9a9);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a9a9a9', endColorstr='#a8a8a8', GradientType=0);
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#e0e0e0), to(#e9e9e9));
+  background-image: -moz-linear-gradient(top, #e0e0e0, #e9e9e9);
+  background-image: -ms-linear-gradient(top, #e0e0e0, #e9e9e9);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e0e0e0), color-stop(100%, #e9e9e9));
+  background-image: -webkit-linear-gradient(top, #e0e0e0, #e9e9e9);
+  background-image: -o-linear-gradient(top, #e0e0e0, #e9e9e9);
+  background-image: linear-gradient(top, #e0e0e0, #e9e9e9);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#e0e0e0', GradientType=0);
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
@@ -32,18 +89,23 @@ input[type=image], input[type=image]:hover {
   color: #0f0f0f;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
-.topbar h3 a:hover, .topbar .brand a:hover, .topbar ul .active > a {
-  color: #4f4f4f;
-}
+
 .topbar h3 a, .topbar .brand {
   color: #0f0f0f;
 }
+
+.topbar h3 a:hover, .topbar .brand:hover,.topbar .brand a:hover, .topbar ul .active > a {
+  color: #049cd9;
+  text-decoration: none;
+}
+
 .topbar p a:hover {
-  color: #0f0f0f;
+  color: #049cd9;
 }
 .topbar div > ul a:hover, .nav a:hover {
-  color: #4f4f4f;
+  color: #049cd9;
 }
+
 
 
 .twipsy {
@@ -111,9 +173,12 @@ span {
 }
 
 footer {
-  background-color: #c5c5c5;
+  background-color: #e9e9e9;
 }
 
 .centered {
   text-align: center;
 }
+
+
+

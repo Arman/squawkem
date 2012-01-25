@@ -1,47 +1,49 @@
-<br/>
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-<br/>
+<div class="container">
+  <br/>
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <br/>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="clearfix">
-    <%= f.label :email, :for => "xlInput" %>
-    <div class="input">   
-      <%= f.email_field :email %>
-    </div>
-  </div>
-
-  <div class="clearfix">
-    <%= f.label :password, :for => "xlInput" %>
-    <div class="input">   
-      <%= f.password_field :password %>
-      <span class="help-block">Leave blank if you don't want to change it.</span>
+    <div class="clearfix">
+      <%= f.label :email, :for => "xlInput" %>
+      <div class="input">   
+        <%= f.email_field :email %>
+      </div>
     </div>
 
-  </div>
+    <div class="clearfix">
+      <%= f.label :password, :for => "xlInput" %>
+      <div class="input">   
+        <%= f.password_field :password %>
+        <span class="help-block">Leave blank if you don't want to change it.</span>
+      </div>
 
-  <div class="clearfix">
-    <%= f.label :password_confirmation, :for => "xlInput" %>
-    <div class="input">   
-      <%= f.password_field :password_confirmation %>
     </div>
-  </div>
 
-  <div class="clearfix">
-    <%= f.label :current_password, :for => "xlInput" %>
-    <div class="input">   
-      <%= f.password_field :current_password %>
-      <span class="help-block">We need your current password to confirm your changes.</span>
+    <div class="clearfix">
+      <%= f.label :password_confirmation, :for => "xlInput" %>
+      <div class="input">   
+        <%= f.password_field :password_confirmation %>
+      </div>
     </div>
-  </div>
 
-  <div class="clearfix">
-    <div class="input">
-      <%= f.submit "Update", :class =>"btn small primary" %>
+    <div class="clearfix">
+      <%= f.label :current_password, :for => "xlInput" %>
+      <div class="input">   
+        <%= f.password_field :current_password %>
+        <span class="help-block">We need your current password to confirm your changes.</span>
+      </div>
     </div>
-  </div>  
 
-<% end %>
+    <div class="clearfix">
+      <div class="input">
+        <%= f.submit "Update", :class =>"btn small primary" %>
+      </div>
+    </div>  
 
-<%= link_to "Back", :back %>
+  <% end %>
+
+  <%= link_to "Back", :back %>
+</div>

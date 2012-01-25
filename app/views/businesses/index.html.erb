@@ -1,38 +1,39 @@
-<div class="row">
-  <div class="span16">
-    <h3> Listing all businesses! </h3>
+<div class="container">
+  <div class="row">
+    <div class="span16">
+      <h3> Listing all businesses! </h3>
+    </div>
+  </div>
+
+  <%= render :partial => "searches/form"%>
+
+  <hr/>
+
+  <div class="row">
+    <table id="listBusinesses" class="tablesorter">
+      <thead> 
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Phone</th>
+            <th>Url</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% @businesses.each do |business| %>
+          <tr>
+            <td><%= link_to business.name, business %></td>
+            <td><%= business.address %></td>
+            <td><%= business.city %></td>
+            <td><%= business.state %></td>
+            <td><%= business.phone %></td>
+            <td><%= business.url %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%=  render :partial => '/shared/tablesorter_pager'%>
   </div>
 </div>
-
-<%= render :partial => "searches/form"%>
-
-<hr/>
-
-<div class="row">
-  <table id="listBusinesses" class="tablesorter">
-    <thead> 
-        <tr>
-          <th>Name</th>
-          <th>Address</th>
-          <th>City</th>
-          <th>State</th>
-          <th>Phone</th>
-          <th>Url</th>
-        </tr>
-    </thead>
-    <tbody>
-      <% @businesses.each do |business| %>
-        <tr>
-          <td><%= link_to business.name, business %></td>
-          <td><%= business.address %></td>
-          <td><%= business.city %></td>
-          <td><%= business.state %></td>
-          <td><%= business.phone %></td>
-          <td><%= business.url %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%=  render :partial => '/shared/tablesorter_pager'%>
-</div>
-

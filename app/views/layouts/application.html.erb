@@ -1,31 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Squawkem</title>
+  <title>Squawk'em</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
 	<%= render :partial => 'layouts/ga' if Rails.env.production? %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-  		<div class="span16">
-    		<p id="notice" class="alert-message warning"><%= notice %></p>
-  		</div>
-		</div>
-	  <div class="row">
-	   	<div class="span16">
-				<%= render 'layouts/header' %>
-				<br/>
-			  <%= yield %>
-				<%= render 'layouts/footer' %>
-				<%= yield :scripts %>
-				<%= debug(params) if Rails.env.development? %>
-			</div>
+	  <%= render 'layouts/header' %>
+		<br/>
 
+		<div class="container">
+  		<p id="notice" class="alert-message warning"><%= notice %></p>
 		</div>
-	</div>
+	  	<%= yield %>
+		<%= render 'layouts/footer' %>
+		<%= yield :scripts %>
+		<%= debug(params) if Rails.env.development? %>
 </body>
 </html>
 
