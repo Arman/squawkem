@@ -8,6 +8,29 @@
   line-height: 27px;
 }
 
+.right-bordered-div {
+  border-right: 1px solid #ddd;
+  border-collapse: separate;
+  *border-collapse: collapse;
+  /* IE7, collapse table to remove spacing */
+
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.bordered-div {
+  border: 1px solid #ddd;
+  padding: 5px;
+  border-collapse: separate;
+  *border-collapse: collapse;
+  /* IE7, collapse table to remove spacing */
+
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
 
 /* Jumbotrons from Twitter Bootstrap
 -------------------------------------------------- */

@@ -1,38 +1,106 @@
 <div class="container">
-	<br/>
-	<h2>Sign up</h2>
-	<br/>
-	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-		<%= devise_error_messages! %>
+<br/>
+	<div class="row">
+		<div class="span8 right-bordered-div">
+			<h2>Create your profile</h2>
+			<br/>
+			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+				<%= devise_error_messages! %>
 
-		<div class="clearfix">
-		 	<%= f.label :email, :for => "xlInput" %>
-		 	<div class="input">	 	
-		 	  <%= f.email_field :email %>
-		 	</div>
+				<div class="clearfix">
+				 	<%= f.label :email, :for => "xlInput" %>
+				 	<div class="input">	 	
+				 	  <%= f.email_field :email %>
+				 	</div>
+				</div>
+
+				<div class="clearfix">
+				 	<%= f.label :first_name, :for => "xlInput" %>
+				 	<div class="input">	 	
+				 	  <%= f.text_field :first_name %>
+				 	</div>
+				</div>
+
+				<div class="clearfix">
+				 	<%= f.label :last_name, :for => "xlInput" %>
+				 	<div class="input">	 	
+				 	  <%= f.text_field :last_name %>
+				 	</div>
+				</div>
+
+				<div class="clearfix">
+				 	<%= f.label :password, :for => "xlInput" %>
+				 	<div class="input">	 	
+				 	  <%= f.password_field :password %>
+				 	</div>
+				</div>
+
+				<div class="clearfix">
+				 	<%= f.label :password_confirmation, :for => "xlInput" %>
+				 	<div class="input">	 	
+				 	  <%= f.password_field :password_confirmation %>
+				 	</div>
+				</div>
+
+				<div class="clearfix">
+				 	<%= f.label :zip_code, :for => "xlInput" %>
+				 	<div class="input">	 	
+				 	  <%= f.text_field :zip_code %>
+				 	</div>
+				</div>
+
+				<div class="clearfix">
+					<%= f.label :gender, :for => "xlInput" %>
+				 	<div class="input">	 	
+				    <div class="pull-left">
+				      <div class="input-prepend">
+				        <label class="add-on">
+				          <%= f.radio_button :user, :gender, true %>
+				        </label>
+				        <input class="small uneditable-input" name="prependedInput2" id="prependedInput2" size="20" type="text" value="Female" >
+				      </div>
+				    </div>
+				    <div class="pull-left">
+				      <div class="input-prepend">
+				        <label class="add-on">
+				          <%= f.radio_button :user, :gender, false %>
+				        </label>
+				        <input class="small uneditable-input" name="prependedInput2" id="prependedInput2" size="20" type="text" value="Male" >
+				      </div>
+				    </div>
+				  </div>
+			  </div>
+
+				<div class="clearfix">
+				 	<%= f.label :birthdate, :for => "xlInput" %>
+				 	<div class="input">	 	
+				 	  <%= f.date_select :birthdate , { :start_year => 1900, :order => [:month, :day, :year], :include_blank => true }, { :class => 'mini' } %>
+				 	</div>
+				</div>
+
+				<div class="clearfix">
+					<p class="font_xs">By clicking the button below, you agree to the Squawk'em Terms of Service and Privacy Policy.
+					</p>
+				</div>
+
+			  <div class="clearfix">
+			    <div class="input">
+			      <%= f.submit "Sign up", :class =>"btn small primary" %>
+			    </div>
+			  </div>	
+
+			<% end %>
+
+			<%= render :partial => "devise/shared/links" %>
 		</div>
 
-		<div class="clearfix">
-		 	<%= f.label :password, :for => "xlInput" %>
-		 	<div class="input">	 	
-		 	  <%= f.password_field :password %>
-		 	</div>
+		<div class="span1">
+      &nbsp
 		</div>
+		<div class="span5">
+			<br/><br/><br/><br/>
+      <%= image_tag("three-doors.png") %>
+    </div>
 
-		<div class="clearfix">
-		 	<%= f.label :password_confirmation, :for => "xlInput" %>
-		 	<div class="input">	 	
-		 	  <%= f.password_field :password_confirmation %>
-		 	</div>
-		</div>
-
-	  <div class="clearfix">
-	    <div class="input">
-	      <%= f.submit "Sign up", :class =>"btn small primary" %>
-	    </div>
-	  </div>	
-
-	<% end %>
-
-	<%= render :partial => "devise/shared/links" %>
+	</div>
 </div>
