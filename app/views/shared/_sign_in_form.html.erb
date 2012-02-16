@@ -10,9 +10,8 @@
   <% else %>
     <%= form_for("user", :url => user_session_path) do |f| %>
       <%= link_to(image_tag("sign-up.png"),new_user_registration_path, :rel => "twipsy", :"data-original-title" => "Sign Up" )%>
-      &nbsp&nbsp
-      <%= f.text_field :email, :class => "span2" %>
-      <%= f.password_field :password, :class => "span2" %>
+      &nbsp&nbsp <strong>ID:</strong> &nbsp<%= f.text_field :email, :class => "span3" %>
+      &nbsp <strong>PW:</strong> &nbsp<%= f.password_field :password, :class => "span2" %>
       <%= submit_tag 'Sign in', :src => '/assets/sign-in.png', :type => 'image', :rel => "twipsy", :"data-original-title" => "Sign In" %>
       &nbsp&nbsp
       <%= link_to(image_tag("login.png"),new_password_path('user'), :rel => "twipsy", :"data-original-title" => "Forgot Password" )%>

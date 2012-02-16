@@ -1,5 +1,13 @@
 Squawkem::Application.routes.draw do
 
+  get "categories/index"
+
+  get "categories/show"
+
+  get "category/index"
+
+  get "category/show"
+
   devise_for :users
 
   resources :businesses do

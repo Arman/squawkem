@@ -130,6 +130,22 @@ input[type=image], input[type=image]:hover {
 }
 
 
+.topbar input {
+  color: #0f0f0f;
+}
+.topbar input:-moz-placeholder {
+  color: #e6e6e6;
+}
+.topbar input::-webkit-input-placeholder {
+  color: #e6e6e6;
+}
+.topbar input:hover {
+  color: #0f0f0f;
+}
+.topbar input:focus, .topbar input.focused {
+  color: #404040;
+}
+
 
 .twipsy {
   z-index: 100000;
